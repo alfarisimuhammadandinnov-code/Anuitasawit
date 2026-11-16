@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMI ADALAH BEBENYIT BJORKA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f0f4f8;
+            --card-bg: #ffffff;
+            --blue-main: #0284c7;
+            --blue-dark: #0369a1;
+            --blue-light: #e0f2fe;
+            --green-text: #059669;
+            --orange-text: #d97706;
+            --red-btn: #ef4444;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --border-color: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            padding-bottom: 45px;
+        }
+
+        .yt-banner {
+            width: 100%;
+            height: 230px;
+            background: linear-gradient(120deg, #0c4a6e 0%, #0284c7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .yt-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .yt-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.45));
+            pointer-events: none;
+        }
+
+        .profile-header {
+            max-width: 1050px;
+            margin: 0 auto 22px;
+            padding: 0 20px;
+        }
+
+        .profile-top {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: -54px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-dan-judul {
+            display: flex;
+            align-items: flex-end;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .bingkai-logo {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 5px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            flex-shrink: 0;
+        }
+
+        .bingkai-logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--blue-light);
+            display: block;
+        }
+
+        .judul-area {
+            padding-bottom: 4px;
+        }
+
+        .tag-mapel {
+            display: inline-block;
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .judul-area h1 {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .judul-area p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .rumus-box {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .rumus-box code {
+            display: block;
+            margin-top: 3px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--blue-dark);
+            font-weight: 700;
+        }
+
+        .rumus-box small {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.74rem;
+            color: var(--text-gray);
+        }
+
+        @media (max-width: 640px) {
+            .yt-banner { height: 170px; }
+            .bingkai-logo { width: 92px; height: 92px; }
+            .profile-top { margin-top: -44px; }
+        }
+
+        .main-wrap {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .box-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .tim-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media (max-width: 780px) {
+            .tim-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .foto-bersama-wrap {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .foto-bersama-wrap img {
+            width: 100%;
+            max-height: 310px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .caption-foto {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-gray);
+            padding: 7px 10px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .list-anggota {
+            width: 100%;
+            list-style: none;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .list-anggota li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 15px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.9rem;
+        }
+
+        .list-anggota li:last-child {
+            border-bottom: none;
+        }
+
+        .list-anggota li:nth-child(even) {
+            background: #fafbfc;
+        }
+
+        .anggota-kiri {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .nomor-urut {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .nama-siswa {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .absen-siswa {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 20px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 860px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quick-fill {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .btn-contoh {
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            border: 1px solid #bae6fd;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-contoh:hover {
+            background: var(--blue-main);
+            color: white;
+        }
+
+        .input-group {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.84rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .field-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .prefix, .suffix {
+            position: absolute;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+
+        .prefix { left: 12px; }
+        .suffix { right: 12px; }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.94rem;
+            font-weight: 500;
+            background: #f8fafc;
+        }
+
+        input.with-prefix { padding-left: 38px; }
+        input.with-suffix-tahun { padding-right: 84px; }
+        input.with-suffix-bulan { padding-right: 60px; }
+
+        input:focus {
+            outline: none;
+            background: #ffffff;
+            border-color: var(--blue-main);
+        }
+
+        .action-btns {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            padding: 11px 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-hitung {
+            background: var(--blue-main);
+            color: white;
+        }
+
+        .btn-hitung:hover {
+            background: var(--blue-dark);
+        }
+
+        .btn-hapus {
+            background: #f1f5f9;
+            color: var(--text-gray);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-hapus:hover {
+            background: #fee2e2;
+            color: var(--red-btn);
+            border-color: #fecaca;
+        }
+
+        .btn-csv {
+            background: #ecfdf5;
+            color: var(--green-text);
+            border: 1px solid #a7f3d0;
+            padding: 6px 12px;
+            font-size: 0.78rem;
+            border-radius: 6px;
+        }
+
+        .btn-csv:hover:not(:disabled) {
+            background: var(--green-text);
+            color: white;
+        }
+
+        .btn-csv:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .alert-error {
+            background: #fef2f2;
+            border-left: 3px solid var(--red-btn);
+            color: #b91c1c;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .hasil-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .hasil-cards { grid-template-columns: 1fr; }
+        }
+
+        .stat-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 13px 14px;
+        }
+
+        .stat-item.utama {
+            background: var(--blue-light);
+            border-color: #7dd3fc;
+        }
+
+        .stat-label {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .stat-angka {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            word-break: break-word;
+        }
+
+        .stat-item.utama .stat-angka {
+            color: var(--blue-dark);
+        }
+
+        .perbandingan-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+
+        .perbandingan-text {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .bar-bg {
+            height: 9px;
+            background: #e2e8f0;
+            border-radius: 99px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .bar-pokok {
+            background: #10b981;
+            width: 50%;
+            transition: width 0.4s;
+        }
+
+        .bar-bunga {
+            background: #f59e0b;
+            width: 50%;
+            transition: width 0.4s;
+        }
+
+        .ket-warna {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            font-size: 0.76rem;
+            color: var(--text-gray);
+        }
+
+        .note-kecil {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            line-height: 1.45;
+        }
+
+        .tabel-section {
+            margin-top: 20px;
+        }
+
+        .scroll-tabel {
+            max-height: 420px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.86rem;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background: #f1f5f9;
+            color: var(--text-dark);
+            font-weight: 700;
+            padding: 11px 12px;
+            text-align: right;
+            border-bottom: 1.5px solid var(--border-color);
+        }
+
+        thead th:first-child, tbody td:first-child {
+            text-align: center;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            text-align: right;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        tbody tr:hover {
+            background-color: #f0f9ff;
+        }
+
+        .kolom-bunga { color: var(--orange-text); }
+        .kolom-angsuran { color: var(--green-text); font-weight: 600; }
+        .kolom-sisa { font-weight: 600; }
+
+        .kosong-info {
+            text-align: center;
+            padding: 40px 15px;
+            color: var(--text-gray);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 0.82rem;
+            color: var(--text-gray);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="yt-banner">
+        <img src="banner.jpg" alt="Banner Kelompok" onerror="this.style.display='none'">
+    </div>
+
+    <div class="profile-header">
+        <div class="profile-top">
+            <div class="logo-dan-judul">
+                <div class="bingkai-logo">
+                    <img src="logo.png" alt="TURUNKAN DINDIN" onerror="this.src='https://ui-avatars.com/api/?name=XI+IPA8&background=0284c7&color=fff&size=150&bold=true'">
+                </div>
+                <div class="judul-area">
+                    <span class="tag-mapel">KAMI ADALAH BEBENYIT BJORKA</span>
+                    <h1>Kalkulator sawit </h1>
+                    <p>DARI MR P.</p>
+                </div>
+            </div>
+
+            <div class="rumus-box">
+                <span>Rumus Apbn Bulanan:</span>
+                <code>A = (M × i) / (1 - (1 + i)⁻ⁿ)</code>
+                <small>dengan i = Bunga Tahunan ÷ 12</small>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-wrap">
+
+        <div class="box">
+            <div class="box-header">
+                <span class="box-title">Anggota Kelompok Penyusun</span>
+            </div>
+
+            <div class="tim-grid">
+                <div class="foto-bersama-wrap">
+                    <img src="foto-bersama.jpg" alt="Foto Bersama Anggota Kelompok" onerror="this.src='https://placehold.co/800x450/e0f2fe/0369a1?text=Foto+Bersama+Kelompok'">
+                    <div class="caption-foto">Dokumentasi Kelompok — Kelas XI IPA-8</div>
+                </div>
+
+                <ul class="list-anggota">
+                    <li>
+                        <div class="anggota-kiri">
+                            <span class="nomor-urut">1</span>
+                            <span class="nama-siswa">Mulyono</span>
+                        </div>
+                        <span class="absen-siswa">XI IPA-8 / Absen 20</span>
+                    </li>
+                    <li>
+                        <div class="anggota-kiri">
+                            <span class="nomor-urut">2</span>
+                            <span class="nama-siswa">Amba</span>
+                        </div>
+                        <span class="absen-siswa">XI IPA-8 / Absen 18</span>
+                    </li>
+                    <li>
+                        <div class="anggota-kiri">
+                            <span class="nomor-urut">3</span>
+                            <span class="nama-siswa">MR.Y</span>
+                        </div>
+                        <span class="absen-siswa">XI IPA-8 / Absen 17</span>
+                    </li>
+                    <li>
+                        <div class="anggota-kiri">
+                            <span class="nomor-urut">4</span>
+                            <span class="nama-siswa">Rival Anonim</span>
+                        </div>
+                        <span class="absen-siswa">XI IPA-8 / Absen 30</span>
+                    </li>
+                    <li>
+                        <div class="anggota-kiri">
+                            <span class="nomor-urut">5</span>
+                            <span class="nama-siswa">Rizkia Rahmi Azizah</span>
+                        </div>
+                        <span class="absen-siswa">XI IPA-8 / Absen 31</span>
+                    </li>
+                    <li>
+                        <div class="anggota-kiri">
+                            <span class="nomor-urut">6</span>
+                            <span class="nama-siswa">Shelvania Hernita Putri</span>
+                        </div>
+                        <span class="absen-siswa">XI IPA-8 / Absen 34</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid-layout">
+            
+            <div class="box">
+                <div class="box-header">
+                    <span class="box-title">Input Data Pinjaman</span>
+                </div>
+
+                <div class="quick-fill">
+                    <button type="button" class="btn-contoh" onclick="pakaiContoh(10000000, 4, 12)">Contoh Soal 1 (4%/thn)</button>
+                    <button type="button" class="btn-contoh" onclick="pakaiContoh(25000000, 6, 24)">Contoh Soal 2 (6%/thn)</button>
+                    <button type="button" class="btn-contoh" onclick="pakaiContoh(60000000, 9, 36)">Contoh Soal 3 (9%/thn)</button>
+                </div>
+
+                <div class="input-group">
+                    <label for="modal">Modal / Pinjaman Awal (M)</label>
+                    <div class="field-wrap">
+                        <span class="prefix">Rp</span>
+                        <input type="number" id="modal" class="with-prefix" placeholder="Masukkan modal..." min="1" step="any">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="bungaTahunan">Suku Bunga per Tahun</label>
+                    <div class="field-wrap">
+                        <input type="number" id="bungaTahunan" class="with-suffix-tahun" placeholder="Contoh: 4" min="0.0001" step="any">
+                        <span class="suffix">% / Tahun</span></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="periode">Lama Periode (n)</label>
+                    <div class="field-wrap">
+                        <input type="number" id="periode" class="with-suffix-bulan" placeholder="Contoh: 12" min="1" max="600" step="1">
+                        <span class="suffix">Bulan</span>
+                    </div>
+                </div>
+
+                <div class="alert-error" id="errorBox"></div>
+
+                <div class="action-btns">
+                    <button type="button" class="btn btn-hitung" onclick="hitung()">Hitung Anuitas</button>
+                    <button type="button" class="btn btn-hapus" onclick="resetSemua()">Reset</button>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="box-header">
+                    <span class="box-title">Hasil Perhitungan</span>
+                </div>
+
+                <div class="hasil-cards">
+                    <div class="stat-item utama">
+                        <span class="stat-label">Anuitas per Bulan (A)</span>
+                        <div class="stat-angka" id="outAnuitas">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Suku Bunga Bulanan (i)</span>
+                        <div class="stat-angka" id="outBungaBulan">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Bunga Bulan Pertama (b₁)</span>
+                        <div class="stat-angka" id="outBunga1">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Angsuran Bulan Pertama (a₁)</span>
+                        <div class="stat-angka" id="outAngsuran1">-</div>
+                    </div>
+                </div>
+
+                <div class="perbandingan-box">
+                    <div class="perbandingan-text">
+                        <span>Total Uang Dibayar: <strong id="outTotalBayar">-</strong></span>
+                        <span>Total Bunga: <strong id="outTotalBunga" style="color:var(--orange-text);">-</strong></span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-pokok" id="barPokok"></div>
+                        <div class="bar-bunga" id="barBunga"></div>
+                    </div>
+                    <div class="ket-warna">
+                        <span>Pinjaman Pokok (<span id="persenPokok">0%</span>)</span>
+                        <span>Bunga (<span id="persenBunga">0%</span>)</span>
+                    </div>
+                </div>
+
+                <p class="note-kecil">
+                    <strong>Keterangan:</strong> Suku bunga tahunan otomatis dibagi 12 oleh sistem untuk mendapatkan bunga bulanan (<em>i</em>). Jumlah cicilan anuitas (A) tiap bulan selalu tetap, dengan porsi bunga makin mengecil dan angsuran pokok makin membesar hingga lunas (Rp 0,00).
+                </p>
+            </div>
+        </div>
+
+        <div class="box tabel-section">
+            <div class="box-header">
+                <span class="box-title">Tabel Rencana Pelunasan Bulanan</span>
+                <button type="button" class="btn btn-csv" id="btnDownload" onclick="unduhCSV()" disabled>
+                    Download Excel (CSV)
+                </button>
+            </div>
+
+            <div class="scroll-tabel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bulan ke- (k)</th>
+                            <th>Pinjaman Awal</th>
+                            <th>Anuitas (A)</th>
+                            <th>Bunga (bₖ)</th>
+                            <th>Angsuran (aₖ)</th>
+                            <th>Sisa Pinjaman</th>
+                        </tr>
+                    </thead>
+                    <tbody id="isiTabel">
+                        <tr>
+                            <td colspan="6" class="kosong-info">
+                                Silakan isi data pinjaman di atas atau klik tombol Contoh Soal untuk melihat rincian tabelnya.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Projek Matematika Semester 1 — Kelas XI IPA-8
+    </footer>
+
+    <script>
+        var listPelunasan = [];
+
+        function keRupiah(nilai) {
+            return new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(nilai);
+        }
+
+        function pakaiContoh(m, bungaThn, nBulan) {
+            document.getElementById("modal").value = m;
+            document.getElementById("bungaTahunan").value = bungaThn;
+            document.getElementById("periode").value = nBulan;
+            hitung();
+        }
+
+        function hitung() {
+            var modal = parseFloat(document.getElementById("modal").value);
+            var bungaTahunan = parseFloat(document.getElementById("bungaTahunan").value);
+            var periode = parseInt(document.getElementById("periode").value, 10);
+            var errorBox = document.getElementById("errorBox");
+
+            if (isNaN(modal) || isNaN(bungaTahunan) || isNaN(periode) || modal <= 0 || bungaTahunan <= 0 || periode <= 0) {
+                errorBox.textContent = "Semua kolom harus diisi angka lebih dari 0.";
+                errorBox.style.display = "block";
+                return;
+            }
+            if (periode > 600) {
+                errorBox.textContent = "Batas maksimal periode adalah 600 bulan.";
+                errorBox.style.display = "block";
+                return;
+            }
+            errorBox.style.display = "none";
+
+            var bungaBulanPersen = bungaTahunan / 12;
+            var i = (bungaTahunan / 100) / 12;
+
+            var bungaAwal = modal * i;
+            var anuitas = (modal * i) / (1 - Math.pow(1 + i, -periode));
+            var angsuranAwal = anuitas - bungaAwal;
+
+            var totalBayar = anuitas * periode;
+            var totalBunga = totalBayar - modal;
+            var pPokok = ((modal / totalBayar) * 100).toFixed(1);
+            var pBunga = (100 - parseFloat(pPokok)).toFixed(1);
+
+            document.getElementById("outAnuitas").textContent = keRupiah(anuitas);
+            document.getElementById("outBungaBulan").textContent = bungaBulanPersen.toFixed(4).replace(".", ",") + "% / bln";
+            document.getElementById("outBunga1").textContent = keRupiah(bungaAwal);
+            document.getElementById("outAngsuran1").textContent = keRupiah(angsuranAwal);
+            document.getElementById("outTotalBayar").textContent = keRupiah(totalBayar);
+            document.getElementById("outTotalBunga").textContent = keRupiah(totalBunga);
+
+            document.getElementById("barPokok").style.width = pPokok + "%";
+            document.getElementById("barBunga").style.width = pBunga + "%";
+            document.getElementById("persenPokok").textContent = pPokok + "%";
+            document.getElementById("persenBunga").textContent = pBunga + "%";
+
+            var tbody = document.getElementById("isiTabel");
+            tbody.innerHTML = "";
+            listPelunasan = [];
+
+            var sisa = modal;
+            for (var k = 1; k <= periode; k++) {
+                var bungaK = sisa * i;
+                var angsuranK = anuitas - bungaK;
+                var sisaAkhir = sisa - angsuranK;
+
+                if (k === periode && Math.abs(sisaAkhir) < 1e-5) {
+                    sisaAkhir = 0;
+                }
+
+                listPelunasan.push({
+                    k: k,
+                    awal: sisa,
+                    anuitas: anuitas,
+                    bunga: bungaK,
+                    angsuran: angsuranK,
+                    sisa: sisaAkhir
+                });
+
+                var tr = document.createElement("tr");
+                tr.innerHTML =
+                    "<td><strong>" + k + "</strong></td>" +
+                    "<td>" + keRupiah(sisa) + "</td>" +
+                    "<td><strong>" + keRupiah(anuitas) + "</strong></td>" +
+                    "<td class='kolom-bunga'>" + keRupiah(bungaK) + "</td>" +
+                    "<td class='kolom-angsuran'>" + keRupiah(angsuranK) + "</td>" +
+                    "<td class='kolom-sisa'>" + keRupiah(sisaAkhir) + "</td>";
+                tbody.appendChild(tr);
+                sisa = sisaAkhir;
+            }
+
+            document.getElementById("btnDownload").disabled = false;
+        }
+
+        function unduhCSV() {
+            if (listPelunasan.length === 0) return;
+            var isi = "Bulan ke-,Pinjaman Awal,Anuitas,Bunga,Angsuran Pokok,Sisa Pinjaman\n";
+            for (var idx = 0; idx < listPelunasan.length; idx++) {
+                var d = listPelunasan[idx];
+                isi += d.k + "," + d.awal.toFixed(2) + "," + d.anuitas.toFixed(2) + "," + d.bunga.toFixed(2) + "," + d.angsuran.toFixed(2) + "," + d.sisa.toFixed(2) + "\n";
+            }
+
+            var file = new Blob([isi], { type: "text/csv;charset=utf-8;" });
+            var link = document.createElement("a");
+            link.href = URL.createObjectURL(file);
+            link.download = "tabel_anuitas_bulanan.csv";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function resetSemua() {
+            document.getElementById("modal").value = "";
+            document.getElementById("bungaTahunan").value = "";
+            document.getElementById("periode").value = "";
+            document.getElementById("errorBox").style.display = "none";
+            document.getElementById("outAnuitas").textContent = "-";
+            document.getElementById("outBungaBulan").textContent = "-";
+            document.getElementById("outBunga1").textContent = "-";
+            document.getElementById("outAngsuran1").textContent = "-";
+            document.getElementById("outTotalBayar").textContent = "-";
+            document.getElementById("outTotalBunga").textContent = "-";
+            document.getElementById("barPokok").style.width = "50%";
+            document.getElementById("barBunga").style.width = "50%";
+            document.getElementById("persenPokok").textContent = "0%";
+            document.getElementById("persenBunga").textContent = "0%";
+            document.getElementById("btnDownload").disabled = true;
+            listPelunasan = [];
+            document.getElementById("isiTabel").innerHTML =
+                "<tr><td colspan='6' class='kosong-info'>Silakan isi data pinjaman di atas atau klik tombol Contoh Soal untuk melihat rincian tabelnya.</td></tr>";
+        }
+    </script>
+</body>
+</html>
